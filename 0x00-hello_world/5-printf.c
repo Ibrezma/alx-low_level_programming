@@ -3,7 +3,6 @@
 
 
 /**
- *
  *  main - Print a string
  *
  *  Description: use printf
