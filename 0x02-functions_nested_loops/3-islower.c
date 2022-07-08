@@ -4,7 +4,7 @@
  * @c: input to be checked
  * Return: returns 1 or 0
  */
-int _islower(int c)
+int test _islower(int c)
 {
 	if (c >= 'a' && c <= 'z')
 	{
