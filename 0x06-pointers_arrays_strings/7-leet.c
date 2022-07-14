@@ -12,18 +12,29 @@ char *leet(char *s)
 {
 	int i;
 
-	for (i = 0; s[i] != '\0'; i++)
+	int j;
+
+	int num[] = {52, 51, 48, 55, 49};
+
+	int cap[] = {97, 101, 111, 116, 108};
+
+	int small[] = {65, 69, 79, 84, 76};
+
+	i = 0;
+
+	while (s[i] != '\0')
 	{
-		while (s[i] == 'a' || s[i] == 'A')
-			s[i] = '4';
-		while (s[i] == 'e' || s[i] == 'E')
-			s[i] = '3';
-		while (s[i] == 'o' || s[i] == 'O')
-			s[i] = '0';
-		while (s[i] == 't' || s[i] == 'T')
-			s[i] = '7';
-		while (s[i] == 'l' || s[i] == 'L')
-			s[i] = '1';
+		for (j = 0; j < 5; j++)
+		{
+		if (s[i] == cap[j] || s[i] == small[j])
+		{
+
+			s[i] = num[j];
+		}
+
+		}
+		i++;
+
 	}
 	return (s);
 }
