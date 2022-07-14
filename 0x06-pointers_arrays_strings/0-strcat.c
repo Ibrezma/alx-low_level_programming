@@ -5,10 +5,10 @@
 
 
 /**
- *  * _strcat - concatinate two string
- *   * @dest: destination string
- *    * @src: source string
- *     * Return: returns the concatineted string
+ * _strcat - concatinate two string
+ * @dest: destination string
+ * @src: source string
+ * Return: returns the concatineted string
  */
 char *_strcat(char *dest, char *src)
 {
@@ -24,8 +24,7 @@ char *_strcat(char *dest, char *src)
 		dest[end] = src[i];
 		end++;
 	}
-	dest[end] = '\n';
+	dest[end] = '\0';
 	return (dest);
-
 
 }
