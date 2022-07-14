@@ -1,43 +1,44 @@
 #include "main.h"
 
-
-
 /**
- *  * cap_string - capitilises string
- *   * @s: string to be capilised
- *    * Return: returns capitilised string
+ *  * cap_string - capitalize all words
+ *   *  @str: string
+ *    *  Return: `str`
  */
 
-char *cap_string(char *s)
-
+char *cap_string(char *str)
 {
-	int i, j;
+	int i, c;
+	int trigger;
+	char nots[] = ",;.!?(){}\n\t\" ";
 
-	int deli[] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
-
-	i = 0;
-
-	if (s[i] >= 97 && s[i] <= 122)
+	for (i = 0, trigger = 0; str[i] != '\0'; i++)
 	{
-		s[i] = s[i] - 32;
-
-		i++;
-	}
-	while (s[i] != '\0')
-	{
-		for (j = 0; j < 13; j++)
+		if (str[0] > 96 && str[0] < 123)
+			trigger = 1;
+		for (c = 0; nots[c] != '\0'; c++)
 		{
-			if (s[i + 1] >= 97 && s[i + 1] <= 122)
-			{
-				s[i + 1] = s[i + 1] - 32;
-
-			}
+			if (nots[c] == str[i])
+				trigger = 1;
 
 		}
-		i++;
+		if (trigger)
+		{
+			if (str[i] > 96 && str[i] < 123)
+			{
+				str[i] -= 32;
+
+				trigger = 0;
+
+			}
+			else if (str[i] > 64 && str[i] < 91)
+				trigger = 0;
+			else if (str[i] > 47 && str[i] < 58)
+				trigger = 0;
+
+		}
 
 	}
-	return (s);
-
+	return (str);
 
 }
