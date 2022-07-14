@@ -13,9 +13,11 @@
 char *_strcat(char *dest, char *src)
 {
 	int end;
+
 	int i;
 
 	end = 0;
+
 	while (dest[end])
 		dest++;
 
