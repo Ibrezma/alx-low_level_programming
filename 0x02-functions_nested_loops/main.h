@@ -10,4 +10,5 @@ int _isalpha(int c);
 int print_sign(int c);
 int _putchar(char c);
 void print_to_98(int n);
+int add(int a, int b);
 #endif /*  MAIN_H */
