@@ -1,52 +1,48 @@
-#include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
+
+#include <string.h>
+
+#include "main.h"
 
 
 
 /**
- *  * string_nconcat - concatenates two strings
- *   * @s1: string
- *    * @s2: string
- *     * @n: integer
- *      * Return: NULL or pointer to string
+ *  * string_nconcat - concatinaid two strings
+ *   * @s1: first string
+ *    * @s2: second string
+ *     * @n: length of s2 to be concatinated
+ *      * Return: ptr to concatinated strings
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int x;
-	unsigned int y;
-	unsigned int z;
-
-	char *s;
+	unsigned int i;
+	int len = n;
+	char *memory;
 
 	if (s1 == NULL)
-	{
-		x = 0;
-	}
-	else
-	{
-		for (x = 0; s1[x]; ++x)
-			;
-	}
+		s1 = "";
+
 	if (s2 == NULL)
-	{
+		s2 = "";
 
-		y = 0;
-	}
-	else
-	{
-		for (y = 0; s2[y]; ++y)
-			;
-	}
-	if (y > n)
-		y = n;
-	s = malloc(sizeof(char) * (x + y + 1));
+	len = len + strlen(s1);
 
-	if (s == NULL)
+	memory = malloc(sizeof(char) * len + 1);
+
+	if (memory == NULL)
 		return (NULL);
-	for (z = 0; z < x; z++)
-		s[z] = s1[z];
-	for (z = 0; z < y; z++)
-		s[z + x] = s2[z];
-	s[x + y] = '\0';
+
+	len = 0;
+	for (i = 0; s1[i] != '\0'; i++)
+	{
+		memory[len++] = s1[i];
+	}
+
+	for (i = 0; s2[i] != '\0' && i < n; i++)
+	{
+		memory[len++] = s2[i];
+	}
+	memory[len] = '\0';
+
+	return (memory);
 }
