@@ -1,24 +1,22 @@
 #include "main.h"
-
-
+#include <stdio.h>
 
 /**
- *  * factorial - prints factorial
- *   * @n: integer
- *    * Return: factorial
+ *  * _pow_recursion - the power of x raised to y
+ *   * @y: the exponent
+ *    * @x: number to be raised to the power
+ *     * Return: x to the power of y
  */
-int factorial(int n)
+int _pow_recursion(int x, int y)
 {
-	int fact = n;
-
-	if (n < 0)
+	if (y < 0)
 		return (-1);
 
-	else if (n >= 0 && n <= 1)
+	else if (y == 0)
 		return (1);
 
 	else
-		fact *= factorial(n - 1);
+		return (x * _pow_recursion(x, y - 1));
 
-	return (fact);
+
 }
