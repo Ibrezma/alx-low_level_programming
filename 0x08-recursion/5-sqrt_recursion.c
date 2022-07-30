@@ -6,8 +6,12 @@
  *   * @n: number to be computed for square root
  *    * Return: the square roo
  */
+int _sqrt_recursion(int n)
 
+{
 
+	return (int sqr_helper(n, 1));
+}
 /**
  *  * sqr_helper - its helper to the function _sqrt_recursion
  *   * @n: number to be computed for square root
