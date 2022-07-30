@@ -2,31 +2,35 @@
 #include <stdio.h>
 
 /**
- *  * _sqrt_recursion - finds the square root
- *   * @n: number to be computed for square root
- *    * Return: the square roo
+ *  * find_root - calculates i**i to check with n
+ *   * @n: base number
+ *    * @i: iterator number
+ *      * Return: i
  */
-int _sqrt_recursion(int n)
-
+int find_root(int n, int i)
 {
+	if (i * i == n)
+		return (i);
 
-	return (int sqr_helper(n, 1));
-}
-/**
- *  * sqr_helper - its helper to the function _sqrt_recursion
- *   * @n: number to be computed for square root
- *    * @m: some guess for the root
- *     * Return: returns the square root
- */
-
-int sqr_helper(int n, int m)
-{
-	if (m * m == n)
-		return (m);
-
-	else if (m * m < n)
-		return (sqr_helper(n, m + 1));
+	if (i * i <= n)
+		return (find_root(n, i + 1));
 
 	else
 		return (-1);
+}
+
+/**
+ *  * _sqrt_recursion - calculates the natural square root
+ *   * @n: int base number
+ *    * Return: square root
+ */
+int _sqrt_recursion(int n)
+{
+	if (n < 0)
+		return (-1);
+
+	if (n == 0 || n == 1)
+		return (n);
+
+	return (find_root(n, 2));
 }
